@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html>
+  {%load static%}
+<head>
+  <title>MedicarePlus</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    header {
+      background-color: #2b2a2a;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .logo {
+      font-weight: bold;
+      font-size: 30px;
+      background-color: #f44336;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .top-right {
+      display: flex;
+      align-items: center;
+      border-radius: 5px;
+    }
+    
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    
+    nav ul li {
+      margin-right: 25px;
+      list-style: none;
+      background-color: green;
+      text-decoration-color: white;
+      border-radius: 25px;
+    }
+    
+    nav ul li a {
+      padding: 5px;
+      margin: 0px;
+      text-decoration: none;
+      color: white;
+      border-radius: 25px;
+    }
+    
+    .emergency-call {
+      background-color: #f44336;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+    
+    .addboth {
+      background-color: #f1f1f1;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .search-bar {
+      background-color: #f1f1f1;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .search-bar input[type="text"] {
+      padding: 10px;
+      margin-right: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;    
+    }
+    
+    .search-bar button {
+      padding: 10px 20px;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+    
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+    
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+    
+    .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+    
+    .rotating-list {
+      font-size: 20px;
+      margin-top: 20px;
+      animation: rotateList 10s linear infinite;
+       list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    .rotating-list ul{
+           list-style-type: none;
+      margin: 0px;
+      padding: 0;
+      display: flex;
+      
+        }
+        .rotating-list ul li {
+              margin-right: 25px;
+      list-style: none;
+      background-color: blue;
+      text-decoration-color: white;
+      border-radius: 5px;
+        }
+     
+    @keyframes rotateList {   
+      0% { opacity: 0; transform: translateY(-20px); }
+      33% { opacity: 1; }
+      66% { opacity: 1; }
+      100% { opacity: 0; transform: translateY(20px); }
+    }
+    
+    @media screen and (max-height: 450px) {
+      .sidenav {
+        padding-top: 15px;
+      }
+      
+      .sidenav a {
+        font-size: 18px;
+      }
+    }
+    .hospital-list-a {
+      overflow-x: hidden;
+      margin-top:20px;
+      animation-name: horizontalMovement;
+      animation-duration: 10s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    .hospital-list {
+      display: flex;
+      overflow: hidden;
+      align-items: flex-start; /* Align items at the top */
+    }
+
+    .hospital-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 24px;
+      white-space: nowrap;
+      padding: 0 10px;
+    }
+
+    .hospital-item img {
+      width: 100px; /* Adjust the image size as needed */
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 5px;
+    }
+
+    @keyframes horizontalMovement {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+    
+    
+     footer {
+      background-color: #2b2a2a;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-links {
+      margin-top: 10px;
+    }
+
+    .footer-links a {
+      margin-right: 10px;
+    }
+    
+    
+    .social-media-icons a {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      color: #2b2a2a;
+      font-size: 18px;
+      line-height: 30px;
+      text-align: center;
+      margin-right: 5px;
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">MedicarePlus</div>
+    <nav>
+      <ul>
+        <li><a href="#">Find Doctor</a></li>
+        <li><a href="#">Video Consultation</a></li>
+        <li><a href="#">Order Medicine</a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Signup</a></li>
+      </ul>
+    </nav>
+    <div class="top-right">
+      <button class="emergency-call">Emergency Call</button>
+    </div>
+  </header>
+  
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+  </div>
+  
+  <div class="addboth">
+    <div class="span">
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Click for more</span>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Enter Location">
+      <input type="text" placeholder="Search Doctor or Hospital">
+      <button>Search</button>
+    </div>
+  </div>
+  
+  <div class="rotating-list">
+    <ul class= rotating-list-ordered>
+      <li>new</li>
+      <li>hospital</li>
+      <li>Medicine</li>
+    </ul>
+  </div>
+  <div class=hospital-list-a>
+  <div class="hospital-list">
+    <div class="hospital-item">
+      <img src="{%static 'images/A.jpg'%}"  alt="Hospital 2">
+      Hospital 2
+    </div>
+    <div class="hospital-item">
+      <img src="{%static 'images/B.jpg'%}"  alt="Hospital 3">
+      Hospital 3
+    </div>
+    <div class="hospital-item">
+      <img src="{%static 'images/C.jpg'%}" alt="Hospital 4">
+      Hospital 1
+    </div>
+    <div class="hospital-item">
+      <img src="{%static 'images/D.jpg'%}" alt="Hospital 5">
+      Hospital 2
+    </div>
+  
+     </div>
+</div>
+<!-- Footer section -->
+  <footer>
+    <p>&copy; 2023 MedicarePlus. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Terms of Service</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Contact</a>
+    </div>
+     <div class="social-media-icons">
+      <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+    </div>
+  </footer>
+
+  <script> 
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+  </script>
+</body>
+</html> 
+
+

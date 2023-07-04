@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html>
+  {%load static%}
+<head>
+  <title>MedicarePlus - Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #4dc3ff;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      text-align: center;
+    }
+    
+    .logo {
+      margin-bottom: 20px;
+    }
+    
+    h2 {
+      margin-top: 0;
+    }
+    
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 4px;
+    }
+    
+    .button:hover {
+      background-color: #45a049;
+    }
+    
+    .alt-login {
+      margin-top: 20px;
+    }
+    
+    .alt-login button {
+      background-color: #4285f4;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 4px;
+    }
+    
+    .alt-login button:hover {
+      background-color: #4dc3ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="medicareplus_logo.png" alt="MedicarePlus Logo">
+    </div>
+    <h2>Login</h2>
+    <form>
+      <input type="text" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <input type="submit" value="Login" class="button">
+    </form>
+    <div class="alt-login">
+      <button onclick="loginWithGoogle()">Login with Google</button>
+    </div>
+    <div class="alt-login">
+      <a href="signup.html">Sign up</a>
+    </div>
+  </div>
+
+  <script>
+    function loginWithGoogle() {
+      // Logic to initiate Google login
+    }
+  </script>
+</body>
+</html>
